@@ -24,7 +24,7 @@ export default function Student() {
     const student={name,address}
     setName('');
     setAddress('');
-    fetch("http://localhost:8081/student/add",{
+    fetch("/student/add",{
       method:"POST",
       headers:{"Content-Type":"application/json"},
       body:JSON.stringify(student)
@@ -35,13 +35,13 @@ export default function Student() {
 }
 
 useEffect(()=>{
-  fetch("http://localhost:8081/student/getAll")
+  fetch("/student/getAll")
   .then(res=>res.json())
   .then((result)=>{
     setStudents(result);
   }
 )
-},[students])
+},[])
   return (
 
     <Container>
